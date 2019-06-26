@@ -44,7 +44,7 @@ if __name__ == '__main__':
             if match:
                 match = match.group(1)
                 escaped = match.encode().decode('unicode-escape')
-                escaped = escaped.rstrip('\\')
+                escaped = escaped.rstrip('\\') # hacky. use a buffer of some kind to make this work correctly.
                 escaped = escaped.encode().decode('unicode-escape')
                 echo(escaped, end='')
     except KeyboardInterrupt:
